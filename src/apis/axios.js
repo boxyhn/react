@@ -5,6 +5,12 @@ import { getCookie } from "../utils/cookie";
 import { refreshToken } from "./api";
 
 // baseURL, credential, 헤더 세팅
+if (process.env.NODE_ENV === "development") {
+  axios.defaults.baseURL = "http://localhost:8000/api";
+} else {
+  axios.defaults.baseURL =
+    "https://port-0-django-dihik2mlj88n7qz.sel4.cloudtype.app/";
+}
 axios.defaults.withCredentials = true;
 axios.defaults.headers.post["Content-Type"] = "application/json";
 axios.defaults.headers.common["X-CSRFToken"] = getCookie("csrftoken");
@@ -61,10 +67,3 @@ instanceWithToken.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-if (process.env.NODE_ENV === "development") {
-  axios.defaults.baseURL = "http://localhost:8000/api";
-} else {
-  axios.defaults.baseURL =
-    "https://port-0-django-dihik2mlj88n7qz.sel4.cloudtype.app/";
-}
