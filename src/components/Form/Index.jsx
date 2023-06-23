@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { EditElement } from "./EditElement";
+import { UpdateInfo } from "../../apis/api";
 
 export const SignUpForm = ({ formData, setFormData, handleSignUpSubmit }) => {
   const handleFormData = (e) => {
@@ -80,6 +82,51 @@ export const SignUpForm = ({ formData, setFormData, handleSignUpSubmit }) => {
       <button type="submit" className="button mt-7">
         Sign up !
       </button>
+    </form>
+  );
+};
+
+export const UserInfoForm = ({ formData, setFormData }) => {
+  const handleFormData = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+  const handleUpdateInfoSubmit = () => {
+    UpdateInfo(formData);
+  };
+  return (
+    <form className="form">
+      <EditElement
+        formData={formData}
+        element="email"
+        setFormData={setFormData}
+        handleFormData={handleFormData}
+        handleUpdateInfoSubmit={handleUpdateInfoSubmit}
+      />
+
+      <EditElement
+        formData={formData}
+        element="username"
+        setFormData={setFormData}
+        handleFormData={handleFormData}
+        handleUpdateInfoSubmit={handleUpdateInfoSubmit}
+      />
+
+      <EditElement
+        formData={formData}
+        element="college"
+        setFormData={setFormData}
+        handleFormData={handleFormData}
+        handleUpdateInfoSubmit={handleUpdateInfoSubmit}
+      />
+
+      <EditElement
+        formData={formData}
+        element="major"
+        setFormData={setFormData}
+        handleFormData={handleFormData}
+        handleUpdateInfoSubmit={handleUpdateInfoSubmit}
+      />
     </form>
   );
 };

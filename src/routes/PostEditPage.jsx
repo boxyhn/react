@@ -26,6 +26,7 @@ const PostEditPage = () => {
     };
     getTagsAPI();
   }, []);
+  
   useEffect(() => {
     const getPostAPI = async () => {
       const post = await getPost(postId);

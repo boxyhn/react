@@ -18,14 +18,6 @@ const HomePage = () => {
       setPostList(posts);
     };
     getPostsAPI();
-  }, []);
-
-  useEffect(() => {
-    const getPostsAPI = async () => {
-      const posts = await getPosts();
-      setPostList(posts);
-    };
-    getPostsAPI();
 
     //추가
     const getTagsAPI = async () => {

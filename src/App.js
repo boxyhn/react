@@ -9,6 +9,7 @@ import PostEditPage from "./routes/PostEditPage";
 import SignUpPage from "./routes/SignUpPage";
 import PostDetailPage from "./routes/PostDetailPage";
 import SignInPage from "./routes/SignInPage";
+import Mypage from "./routes/MyPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           {/* sign up */}
           <Route path="/signin" element={<SignInPage />} />
+          <Route path="/mypage" element={<Mypage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
